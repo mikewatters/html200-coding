@@ -8,11 +8,11 @@ function numberSquarer() {
 }
 
 function twoNumbers() {
-  let input1 = prompt('Enter a number!')
-  let input2 = prompt('Multiply that number by:');
+  let firstInput = prompt('Enter a number!')
+  let secondInput = prompt('Multiply that number by:');
   let result = 0;
 
-  result = Number(input1) * Number(input2);
+  result = Number(firstInput) * Number(secondInput);
 
   alert(result);
 }
