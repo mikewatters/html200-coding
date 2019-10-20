@@ -1,11 +1,42 @@
 let total = 0;
 
 function makeDeposit(x) {
+  if (x > 50000) {
+    alert('You cannot deposit more than $50,000.')
+  }
+  else {
   total += Number(x);
+  }
+  if (total < 300) {
+    alert('Warning: Your balance is less than $300.');
+  }
 }
 
 function makeWithdrawal(x) {
-  total -= Number(x);
+  if (x > total) {
+    alert('You cannot withdraw money you do not have!')
+  }
+  else {
+    if (total - x < 300) {
+      let input = prompt('This will take your balance below $300. Are you sure? Enter Y or N.');
+      switch(input) {
+          case 'Y': {
+          total -= Number(x);
+          }
+          case 'N': {
+          break;
+          }
+          default: {
+          prompt('Please try again. Enter Y or N.')
+          }
+        }
+      }
+      else {
+        if (total - x < 300) {
+                  total -= Number(x);
+      }
+    }
+  }
 }
 
 function bankActions() {
@@ -28,7 +59,7 @@ function bankActions() {
       break;
       }
       case 'B': {
-      alert('Your balance is ' + Number(total));
+      alert('Your balance is $' + Number(total));
       break;
       }
       default: {
